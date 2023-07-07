@@ -1,0 +1,334 @@
+/* Global values */
+
+:root {
+    font-family: 'Lato', sans-serif;
+    --aqua: hsl(160, 80%, 35%);
+
+    --dark-blue: hsl(236, 80%, 20%);
+
+    --white: hsl(0, 0%, 100%);
+    --white-low-opacity: hsl(0, 0%, 100%, 0.5);
+    --white-very-low-opacity: hsl(0, 0%, 100%, 0.2);
+
+    --black: hsl(0, 0%, 0%);
+    --black-low-opacity: hsl(0, 0%, 0%, 0.5);
+
+    --red: hsl(0, 80%, 50%);
+
+    --gray: hsl(0, 0%, 40%);
+    --light-gray: hsl(0, 0%, 80%);
+
+    --transparent: hsl(0, 0%, 0%, 0);
+}
+
+/* General definitions */
+
+form, button, input, select {
+    font-size: large;
+    font-family: inherit;
+}
+
+html {
+    margin: 0px;
+    height: 100%;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    background-image: linear-gradient(var(--dark-blue), var(--aqua) 120%);
+    color: var(--white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/** Page structure */
+
+/* Header */
+
+header {
+    display: flex;
+    background: linear-gradient(var(--black-low-opacity), var(--transparent));
+    height: 80px;
+    font-weight: 600;
+    font-size: 40px;
+    padding-left: 2.5vw;
+    margin: 0px;
+    align-items: center;
+}
+
+header a p {
+    margin: 0px;
+}
+
+.username-config {
+    margin: 1vw;
+}
+
+/* Main content */
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 80px);
+}
+
+.navigation-bar, .main-page {
+    margin: 0px;
+    flex: 1;
+}
+
+.navigation-bar {
+    background: linear-gradient(var(--transparent), var(--aqua) 100%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 15vw;
+}
+
+.navigation-bar .navigation-bar-item {
+    height: 10%;
+}
+
+.main-page {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Navbar and homepage buttons */
+
+.navigation-bar-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: clamp(0px, 2vw, calc(0.8vw + 0.8vh));
+}
+
+.navigation-bar-item:hover {
+    text-decoration: underline;
+}
+
+.navbar-selected-button {
+    background-color: var(--white-very-low-opacity);
+    border-left: 5px solid var(--white);
+}
+
+/** Main page headers and forms */
+
+.page-heading {
+    font-size: calc(2vh + 2vw);
+    margin: calc(2vh + 2vw);
+}
+
+.page-text {
+    font-size: calc(1vh + 1vw);
+}
+
+.page-text-input {
+    padding: 0.3vw;
+    font-size: calc(0.8vh + 0.8vw);
+}
+
+.page-select-container {
+    margin: calc(0.4vh + 0.4vw);
+}
+
+.page-select {
+    font-size: calc(0.8vh + 0.8vw);
+}
+
+/* Main page buttons */
+
+#search-cocktail-button {
+
+    background: url(../assets/images/search.png);
+    position: relative;
+    border: 0;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    
+    /* TODO */
+    scale: 100%;
+
+    bottom: -5px;
+}
+
+.page-button {
+    font-size: calc(0.8vh + 0.8vw);
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    transition: background-color 300ms, border 300ms, color 300ms;
+}
+
+.page-button:hover {
+    background-color: var(--aqua);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+.page-button:active {
+    background-color: var(--white);
+    transition: background-color 0ms;
+}
+
+.config-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: calc(0.4vh + 0.4vw);
+}
+
+/** Cocktails display */
+
+.cocktail-grid {
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    justify-content: center;
+}
+
+.cocktail-card-container {
+    
+    display: flex;
+    justify-content: right;
+    
+    position: relative;
+    height: 354px;
+    width: 235px;
+    margin-left: 65px;
+    margin-right: 100px;
+    margin-top: 100px;
+    margin-bottom: 96px;
+}
+
+.cocktail-card {
+    z-index: 5;
+    position: relative;
+    background-color: var(--white);
+    height: 350px;
+    width: 200px;
+    border-radius: 10%;
+    box-shadow: 10px 10px 15px var(--black);
+    cursor: pointer;
+    opacity: 0.9;
+    top: 0%;
+    filter: saturate(100%);
+    transition: opacity 350ms, top 350ms, filter 350ms;
+}
+
+.cocktail-card-hover {
+    top: -5%;
+    opacity: 1;
+    filter: saturate(110%);
+}
+
+/* Inside the card */
+
+.cocktail-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 10%;
+}
+
+.cocktail-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-style: italic;
+    font-size: 25px;
+    height: 150px;
+    margin: 0px;
+    color: var(--black);
+}
+
+/* Alcoholic icon */
+
+.alcoholic-icon-container {
+    scale: 80%;
+    z-index: 10;
+    background-color: var(--aqua);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 20px;
+    position: relative;
+    top: -110%;
+    left: -20%;
+    box-shadow: 10px 10px 15px var(--black);
+}
+
+/** Cocktails dialog */
+
+#cocktail-dialog[open] {
+    padding: 0px;
+    border: 0px;
+    border-radius: 20px;
+    flex-direction: row;
+    display: flex;
+    overflow: hidden;
+}
+
+#dialog-content {
+    height: 580px;
+    padding: 10px;
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+.dialog-image {
+    height: 600px;
+    flex: 1;
+}
+
+.dialog-name {
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.dialog-header {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.dialog-text {
+    color: var(--gray);
+    font-weight: 200;
+    font-size: 22px;
+    font-style: italic;
+    text-align: justify;
+}
+
+#close-dialog {
+    position: relative;
+    z-index: 100;
+    border: 0px;
+    background-color: var(--light-gray);
+    padding: 10px;
+}
+
+#close-dialog:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+dialog::backdrop {
+    background: rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}

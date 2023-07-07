@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./assets/images/cocktail.png">
+  <title>Search cocktail</title>
+</head>
+<body>
+  <main id="main-content" class="main-content">
+    <div class="main-page">
+      <div class="search-cocktail-container">
+        <h1 class="page-heading">Search for a cocktail: </h1>
+        <form id="cocktail-form">
+          <input id="search-cocktail" class="search-cocktail page-text-input" name="search-cocktail" type="text" />
+          <input id="search-cocktail-button" type="submit" value="" />
+          <br>
+          <div class="search-type-container page-select-container">
+            <label class="page-text" for="search-type">Search by: </label>
+            <select id="search-type" class="page-select" name="search-type">
+              <option class="page-option" value="by-name">Name</option>
+              <option class="page-option" value="by-ingredient">Ingredient</option>
+              <option class="page-option" value="random">Random</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div id="cocktail-grid" class="cocktail-grid"></div>
+    </div>
+  </main>
+  <dialog id="cocktail-dialog">
+    <div id="dialog-content"></div>
+    <button id="close-dialog">Close</button>
+  </dialog>
+  <script src="./scripts/templates/templates.js"></script>
+  <script src="./scripts/cocktails/cocktails.js"></script>
+</body>
+</html>
