@@ -1,17 +1,32 @@
-"use strict";
 //* Templates
+
+/*
+import iconUrl from '../images/cocktail.png'
+
+const headRef = document.querySelector('head') as HTMLHeadElement;
+const iconRef = document.createElement('link');
+iconRef.setAttribute('rel', 'icon');
+iconRef.setAttribute('type', 'image/x-icon');
+iconRef.setAttribute('href', '../images/cocktail.png');
+headRef.appendChild(iconRef);
+console.log("TEST2");
+*/
+
 // Header template declaration
 const usernameTemplate = document.createElement('template');
 usernameTemplate.id = "username-template";
+
 // Header template definition
 usernameTemplate.innerHTML = `
   <header>
     <a href="./config.html"><p id="username"></p></a>
   </header>
 `;
+
 // Navbar template declaration
 const navigationBarTemplate = document.createElement('template');
 navigationBarTemplate.id = "navigation-bar-template";
+
 // Navbar template definition
 navigationBarTemplate.innerHTML = `
   <nav class="navigation-bar">
@@ -20,18 +35,21 @@ navigationBarTemplate.innerHTML = `
     <a id="navbar-settings-button" class="navigation-bar-item" href="./config.html">Account</a>
   </nav>
 `;
+
 // Adds the templates to the webpage
 document.body.insertBefore(usernameTemplate.content, document.body.childNodes[0]);
-document.getElementById('main-content').insertBefore(navigationBarTemplate.content, document.getElementById('main-content').childNodes[0]);
+document.getElementById('main-content')!.insertBefore(navigationBarTemplate.content, document.getElementById('main-content')!.childNodes[0]);
+
 reloadUsername();
+
 // Updates the UI when the username is changed. Also used in config.ts
-function reloadUsername() {
-    const nameElement = document.getElementById('username');
-    const username = JSON.parse(localStorage.getItem('username') || 'null');
-    if (username === null) {
-        nameElement.innerText = 'Create account';
-    }
-    else {
-        nameElement.innerText = username;
-    }
+export function reloadUsername(): void {
+  const nameElement = document.getElementById('username') as HTMLElement;
+
+  const username: string = JSON.parse(localStorage.getItem('username') || 'null');
+  if(username === null) {
+      nameElement.innerText = 'Create account';
+  } else {
+      nameElement.innerText = username;
+  }
 }

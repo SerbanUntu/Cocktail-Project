@@ -72,7 +72,7 @@ cocktailForm.addEventListener("submit", (e) => {
                 const alcoholicIconContainer = document.createElement('div');
                 alcoholicIconContainer.className = "alcoholic-icon-container";
                 alcoholicIconContainer.innerHTML = `
-                  <img class="alcoholic-icon-image" src="assets/images/alcoholic_icon.png" alt="Icon indicating alcohol content" />
+                  <img class="alcoholic-icon-image" src="/images/alcoholic_icon.png" alt="Icon indicating alcohol content" />
                 `;
                 // Changes the icon based on the alcoholic number, defined in the Cocktail interface
                 switch(cocktail.alcoholic) {
