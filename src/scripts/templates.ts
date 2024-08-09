@@ -7,7 +7,7 @@ usernameTemplate.id = "username-template";
 // Header template definition
 usernameTemplate.innerHTML = `
   <header>
-    <a href="./config.html"><p id="username"></p></a>
+    <a href="../config.html"><p id="username"></p></a>
   </header>
 `;
 
@@ -18,9 +18,9 @@ navigationBarTemplate.id = "navigation-bar-template";
 // Navbar template definition
 navigationBarTemplate.innerHTML = `
   <nav class="navigation-bar">
-    <a id="navbar-homepage-button" class="navigation-bar-item" href="./index.html">Homepage</a>
-    <a id="navbar-cocktails-button" class="navigation-bar-item" href="./cocktails.html">Cocktails</a>
-    <a id="navbar-settings-button" class="navigation-bar-item" href="./config.html">Account</a>
+    <a id="navbar-homepage-button" class="navigation-bar-item" href="../index.html">Homepage</a>
+    <a id="navbar-cocktails-button" class="navigation-bar-item" href="../cocktails.html">Cocktails</a>
+    <a id="navbar-settings-button" class="navigation-bar-item" href="../config.html">Account</a>
   </nav>
 `;
 
@@ -31,13 +31,13 @@ document.getElementById('main-content')!.insertBefore(navigationBarTemplate.cont
 reloadUsername();
 
 // Updates the UI when the username is changed. Also used in config.ts
-function reloadUsername(): void {
-  const nameElement = document.getElementById('username') as HTMLElement;
+export default function reloadUsername(): void {
+	const nameElement = document.getElementById('username') as HTMLElement;
 
-  const username: string = JSON.parse(localStorage.getItem('username') || 'null');
-  if(username === null) {
-      nameElement.innerText = 'Create account';
-  } else {
-      nameElement.innerText = username;
-  }
+	const username: string = JSON.parse(localStorage.getItem('username') || 'null');
+	if (username === null) {
+		nameElement.innerText = 'Create account';
+	} else {
+		nameElement.innerText = username;
+	}
 }

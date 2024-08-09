@@ -1,11 +1,13 @@
 //* Homepage
+import "./css/style.css"
+import "./scripts/templates"
 
 const greeting = document.getElementById('username-greeting') as HTMLElement;
 const username: string = JSON.parse(localStorage.getItem('username') || 'null');
 
 // Update greeting
-if(username !== null) {
-    greeting.innerText = `Welcome back, ${username}!`;
+if (username !== null) {
+	greeting.innerText = `Welcome back, ${username}!`;
 }
 
 //Navbar indicator
